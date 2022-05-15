@@ -1,0 +1,44 @@
+.productPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+// Contains both productIndex__filter & productIndex
+.productPage__ctn--content {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0rem 5rem;
+  width: 100vw;
+}
+
+
+// Filter.js
+.productIndex__filter {
+  box-sizing: border-box;
+  margin: 0rem 1rem;
+  width: 20vw;
+}
+
+.productIndex__filter > h5 {
+  @include h5__base--apercu;
+  text-decoration: underline;
+  text-decoration-color: $black-color;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 6px;
+  margin: 2rem 0rem;
+}
+
+
+// ProductIndex.js
+.productIndex {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100vw - 20vw - 10rem);
+  // background-color: pink;
+}
+
+

@@ -1,0 +1,12 @@
+.discountHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  background-color: $black-color;
+}
+
+.discountHeader > p {
+  @include p__base;
+  color: $white-color;
+}

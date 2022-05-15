@@ -1,0 +1,54 @@
+.icon__sidebar--close,
+.icon__sidebar--back {
+  @include sidebar__iconCtn;
+}
+
+.icon__sidebar--close {
+  font-size: 2.5rem;
+}
+
+.icon__sidebar--back {
+  font-size: 2.5rem;
+}
+
+.icon__sidebar--close:hover {
+  color: $white-color;
+}
+
+svg.icon__sidebar--close > path,
+svg.icon__sidebar--back > polyline {
+  stroke-width: 4;
+}
+
+
+
+// Pagination prev and next arrows
+.icon__pagination--prev,
+.icon__pagination--next {
+  position: relative;
+  padding: 0rem 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+svg.icon__pagination--prev > polyline,
+svg.icon__pagination--next > polyline {
+  stroke-width: 6;
+  stroke: $white-color;
+}
+
+
+// cartAmountButton add / minus icons
+.icon__cartAmountButton--add,
+.icon__cartAmountButton--minus {
+  position: relative;
+  padding: 0rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.icon__cartAmountButton--add > path,
+.icon__cartAmountButton--minus > path {
+  stroke-width: 4;
+  stroke: $white-color;
+}

@@ -1,0 +1,75 @@
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+
+  padding: 1rem 3rem;
+
+  height: 12vh;
+  width: 100vw;
+}
+
+
+// Logo related stuff
+.navbar__ctn--logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar__ctn--logo > img {
+  height: 100%;
+}
+
+.navbar__ctn--logo > h1 {
+  @include h1__base--canela;
+}
+
+
+// ul related stuff
+.navbar__ctn--link {
+  display: flex;
+}
+
+.navbar__ctn--link li {
+  @include p__base--apercu;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0rem 2rem;
+
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 4px;
+  transition: 0.3s;
+}
+.navbar__ctn--link li:hover {
+  text-decoration-color: $black-color;
+}
+
+
+
+// For once you add Link prop to li in navbar
+.navbar__ctn--link a {
+  @include p__base--apercu;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0rem 2rem;
+
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 4px;
+  transition: 0.3s;
+  color: $black-color;
+}
+.navbar__ctn--link a:hover {
+  text-decoration-color: $black-color;
+}

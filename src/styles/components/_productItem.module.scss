@@ -1,0 +1,114 @@
+// ------------- Carousel -------------
+.carouselItem {
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 0.5rem 1rem;
+}
+
+// Image related stuff
+.carouselItem__ctn--img {
+  position: relative;
+  height: 50vh;
+}
+
+.carouselItem__ctn--img img:first-child {
+  position: relative;
+  z-index: 10;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+.carouselItem__ctn--img img:last-child {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 11;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+
+// Content related stuff
+.carouselItem__ctn--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  height: 16vh;
+}
+
+.carouselItem__ctn--content > div h1 {
+  @include h2__base--canela;
+  margin-bottom: 0.5rem;
+}
+
+.carouselItem__ctn--content > div h5 {
+  @include h5__base--apercu;
+}
+
+
+
+
+// ------------- ProductIndex -------------
+.productItem {
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  margin: 0rem 0.5rem 2rem;
+  width: calc((80vw - 10rem) / 3 - 1rem);
+}
+
+// Image related stuff
+.productItem__ctn--img {
+  position: relative;
+  height: 50vh;
+}
+
+.productItem__ctn--img img:first-child {
+  position: relative;
+  z-index: 10;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+.productItem__ctn--img img:last-child {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 11;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+
+// Content related stuff
+.productItem__ctn--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  height: 16vh;
+}
+
+.productItem__ctn--content > div {
+}
+
+.productItem__ctn--content > div h1 {
+  @include h2__base--canela;
+  margin-bottom: 0.5rem;
+}
+
+.productItem__ctn--content > div h5 {
+  @include h5__base--apercu;
+}

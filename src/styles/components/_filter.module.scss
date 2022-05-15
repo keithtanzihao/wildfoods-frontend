@@ -1,0 +1,119 @@
+// Container stuff
+.filterRadio__ctn {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterRadio__headerCtn {
+  @include label__base;
+  padding: 1rem 0rem;
+}
+
+
+
+// SortPrice container (select tag)
+.sortPrice__ctn {
+  display: flex;
+  flex-direction: column;
+}
+
+.sortPrice__headerCtn {
+  @include h2__base--canela;
+  padding: 1rem 0rem;
+}
+
+.sortPrice__ctn select {
+  @include p__base--apercu;
+  border: 2px solid $black-color;
+  box-sizing: border-box;
+  padding: 0.5rem; 
+}
+
+
+
+
+
+// Search Text container
+.searchText__ctn {
+  box-sizing: border-box;
+}
+
+// Search Text header container which has h1
+.searchText__headerCtn {
+  @include h2__base--canela;
+  padding: 1rem 0rem;
+}
+
+
+.searchText__ctn label input {
+  @include p__base--apercu;
+  border: 2px solid $black-color;
+  box-sizing: border-box;
+  padding: 0.5rem; 
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+// Radio input stuff
+.radioInput__ctn {
+  display: flex;
+  flex-direction: column;
+}
+
+.radioInput__ctn input {
+  display: none;
+}
+
+.radioInput__ctn label {
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
+.radioInput__ctn label span {
+  @include p__base;
+  position: relative;
+  line-height: 22px;
+}
+
+
+.radioInput__ctn label span:before,
+.radioInput__ctn label span:after {
+  content: '';
+}
+
+.radioInput__ctn label span:before {
+  border: 1px solid #222021;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.radioInput__ctn label span:after {
+  background: #222021;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  transition: 300ms;
+  opacity: 0;
+}
+
+.radioInput__ctn label input:checked+span:after {
+  opacity: 1;
+}
+
+
+
+
+

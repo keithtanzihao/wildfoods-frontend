@@ -1,0 +1,46 @@
+.cartAmountButton {
+  border: none !important;
+}
+
+// CartAmountButton container
+.button__amountCtn {
+  display: flex;
+  border: none;
+  box-sizing: border-box;
+}
+
+.button__amount--add {
+  border: none;
+  border-top-left-radius: 48px;
+  border-bottom-left-radius: 48px;
+  box-sizing: border-box;
+
+  padding: 1rem;
+  background-color: $black-color;
+  cursor: pointer;
+}
+
+.button__amount--minus {
+  border: none;
+  border-top-right-radius: 48px;
+  border-bottom-right-radius: 48px;
+  box-sizing: border-box;
+
+  padding: 1rem;
+  background-color: $black-color;
+  cursor: pointer;
+}
+
+.button__amountCtn > div {
+  display: flex;
+}
+
+.button__amountCtn > div > input {
+  @include h5__base--apercu;
+  border: none;
+  box-sizing: border-box;
+  padding: 1rem;
+  color: $white-color;
+  text-align: center;
+  background-color: $black-color;
+}

@@ -1,0 +1,89 @@
+
+.mainpage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+.mainpage__mantra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10vh 10vw 5vh;
+  height: 100vh;
+  background-color: $sidebar-color1;
+}
+
+.mainpage__ctn--mantraHead {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+
+.mainpage__ctn--mantraHead > div {
+  display: inline;
+  margin-bottom: 1.5rem;
+}
+
+.mainpage__ctn--mantraHead > div h1 {
+  @include h1__base;
+  font-size: 5rem;
+  letter-spacing: -5px;
+}
+
+.mainpage__ctn--mantraHead p {
+  @include p__base;
+  display: inline-block;
+  margin: 0rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.mainpage__ctn--mantraImgs {
+  position: relative;
+}
+
+
+
+
+
+
+.mainpage__nuts {
+  display: flex;
+  height: 100vh;
+  background-color: $sidebar-color1;
+}
+
+.mainpage__nuts--treasure {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 25vh 5rem 0rem;
+  width: 40vw;
+}
+
+.mainpage__nuts--treasure > p {
+  @include p__base;
+  margin-bottom: 5rem;
+  width: 80%;
+  font-size: 1.5rem;
+}
+
+.mainpage__nuts--treasure li {
+  @include h1__base;
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  width: 80%;
+  font-size: 3rem;
+}
+
+
+

@@ -1,0 +1,57 @@
+.modal__empty {
+  position: absolute;
+  z-index: 13;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.editModal {
+  position: absolute;
+  z-index: 14;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+
+  width: 50vw;
+  height: 50vh;
+
+  background-color: $white-color;
+}
+
+
+// Cart info stuff 
+.editModal__ctn--cartInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 2rem;
+  width: 50%;
+}
+
+.editModal__ctn--cartInfo > h1 {
+  @include h1__base--canela;
+  margin-bottom: 1rem;
+}
+
+.editModal__ctn--cartInfo > div:nth-child(2) {
+  display: flex;
+}
+
+.editModal__ctn--cartInfo > div:nth-child(2) > p {
+  @include h5__base--apercu;
+  margin-bottom: 1rem;
+}
+
+.editModal__ctn--cartInfo > div:nth-child(2) > p:first-child {
+  margin-right: 1rem;
+}
+
+// Img stuff
+.editModal__ctn--img {
+  width: 50%;
+  object-fit: contain;
+}

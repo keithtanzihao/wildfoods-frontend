@@ -1,0 +1,186 @@
+.productInfo {
+  box-sizing: border-box;
+  padding: 0rem 5rem;
+  // background-color: $sidebar-color1;
+  width: 100vw;
+}
+
+// ------------------ Ctn for each row ------------------
+.productInfo__ctn {
+  position: relative;
+  display: flex;
+  width: 100%;
+  // background-color: pink;
+}
+
+// ------------------ Ctn for focused product image ------------------ 
+.productInfo__imgCtn {
+  width: 50vw;
+}
+
+.productInfo__imgCtn > img {
+  position: sticky;
+  top: 10%;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+// ------------------ Ctn for description ------------------
+
+.productInfo__infoCtn {
+  display: flex;
+  flex-direction: column;
+  // box-sizing: border-box;
+  padding: 4rem 0rem 0rem 4rem; 
+  width: 50vw;
+  // background-color: pink;
+}
+
+// Category stuff
+.productInfo__infoCtn > h4 {
+  @include h4__base--canela;
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+// Classification stuff
+.productInfo__infoCtn > div:nth-child(2) {
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.productInfo__infoCtn > div:nth-child(2) div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  // background-color: pink;
+}
+
+.productInfo__infoCtn > div:nth-child(2) h5 {
+  @include h5__base--apercu;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-bottom: 1rem;
+  width: 50%;
+}
+
+// Ingredient stuff
+.productInfo__infoCtn > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.productInfo__infoCtn > div:nth-child(3) div {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  // background-color: pink;
+}
+
+.productInfo__infoCtn > div:nth-child(3) h5 {
+  @include h5__base--apercu;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-bottom: 1rem;
+}
+
+.productInfo__infoCtn > p {
+  @include h6__base--apercu;
+  margin-bottom: 40vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+// ------------------ Ctn to wrap around costInfoCtn to center div ------------------
+.productInfo__costCtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+// Ctn for cost, weight, stock, cart button
+.productInfo__costCtn > h1 {
+  @include h1__base--canela;
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
+}
+
+// div that wraps around "In/No Stock" h5
+.productInfo__costCtn > div {
+  @include h5__base--apercu;
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  padding: 1rem 0rem;
+}
+
+
+
+
+
+
+
+// ------------------ nutrition related stuff ------------------
+.productInfo__nutritionCtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  // background-color: lightcyan;
+}
+
+
+.productInfo__nutritionCtn > div:first-child {
+  @include h1__base--canela;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  width: 50%;
+}
+
+
+.productInfo__nutritionCtn > ul > li {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0.5rem 0rem;
+  // background-color: greenyellow;
+}
+
+.productInfo__nutritionCtn > ul div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  width: 70%;
+  // background-color: orange;
+}
+
+.productInfo__nutritionCtn > ul > li p {
+  @include h5__base--apercu;
+  margin-bottom: 0.5rem;
+}
+
+.productInfo__nutritionCtn > p {
+  @include h6__base--apercu;
+  margin-bottom: 40vh;
+}
+
+
+
+

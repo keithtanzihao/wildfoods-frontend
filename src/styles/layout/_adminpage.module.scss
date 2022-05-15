@@ -1,0 +1,121 @@
+.adminpage {
+  position: relative;
+  display: column;
+}
+
+.adminpage > section {
+  display: flex;
+}
+
+
+// Navbar
+.adminNavbar {
+  @include borders__testing;
+  @include ctn__base;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 8vh;
+}
+
+.adminNavbar > h1 {
+  @include h1__base;
+}
+
+
+
+
+// Sidebar
+.adminSidebar {
+  // Might remove later
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  height: calc(100vh - 8vh);
+}
+
+.adminSidebar > p {
+  @include p__base;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+}
+ 
+.adminSidebar > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.adminSidebar > div a {
+  @include p__base;
+  padding: 0.5rem 2rem;
+  font-size: 1.25rem;
+}
+
+
+
+
+// Index
+.adminIndex {
+  overflow: scroll;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  // Might remove later
+  border-right: 4px solid black;
+  box-sizing: border-box;
+
+  max-width: calc(100vw - 15vw);
+  max-height: calc(100vh - 8vh);
+}
+
+.adminIndex > div {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.adminIndex > div > h1 {
+  @include h1__base;
+}
+
+
+
+// Table related stuff
+.adminIndexTable {
+  // flex-grow: 1;
+  width: 100%;
+}
+
+.adminIndexTable > thead {
+  background-color: orange;
+}
+
+.adminIndexTable > thead th {
+  @include p__base;
+  border: 2px solid black;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+
+.adminIndexTable > tbody tr {
+  // height: 30vh;
+}
+
+.adminIndexTable > tbody tr td:first-child {
+  text-align: center
+}
+
+.adminIndexTable > tbody td {
+  @include p__base;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+}
+
+
+

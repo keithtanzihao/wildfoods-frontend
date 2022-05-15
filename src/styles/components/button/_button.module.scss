@@ -1,0 +1,158 @@
+
+a {
+  cursor: pointer;
+}
+
+// Admin page buttons
+.button__admin--create {
+  @include button__base;
+  margin: 0rem 1rem;
+}
+
+.button__admin--edit {
+  @include button__base;
+  width: 6rem;
+  background-color: $green-color;
+}
+
+.button__admin--delete {
+  @include button__base;
+  width: 6rem;
+  background-color: $red-color;
+}
+
+.button__productCreate--submit {
+  @include button__base;
+  width: 6rem;
+  background-color: $green-color;
+}
+
+.button__ingredientCreate--submit {
+  @include button__base;
+  background-color: $green-color;
+}
+
+.button__product--buy {
+  @include button__base;
+  border: none;
+  border-radius: 24px;
+  padding: 1rem;
+  width: 10rem;
+}
+
+.button__mantra--discover {
+  @include button__base;
+  border: 4px solid $black-color;
+  border-radius: 48px;
+  padding: 1.5rem;
+  width: 13rem;
+  background-color: $black-color;
+  color: $white-color;
+}
+
+
+
+// Jumbotron mainpage button
+.button__jumbotron--mainpage {
+  @include button__base--noBorder;
+  width: 40%;
+  background-color: $black-color;
+  color: $white-color;
+}
+
+
+// Pagination Left and right buttons 
+.button__pagination--left {
+  border: none;
+  border-top-left-radius: 48px;
+  border-bottom-left-radius: 48px;
+  box-sizing: border-box;
+
+  padding: 1rem;
+  background-color: $black-color;
+  cursor: pointer;
+}
+
+.button__pagination--right {
+  border: none;
+  border-top-right-radius: 48px;
+  border-bottom-right-radius: 48px;
+  box-sizing: border-box;
+
+  padding: 1rem;
+  background-color: $black-color;
+  cursor: pointer;
+}
+
+// Filter reset and add filter buttons
+.button__filter--reset {
+  @include p__base--apercu;
+  border: 4px solid black;
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button__filter--add {
+  @include p__base--apercu;
+  border: 4px solid black;
+  border-radius: 12px;
+  box-sizing: border-box;
+  margin: 1rem 0rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+// Login Button
+.button__login {
+  @include h2__base--canela;
+  border: none;
+  border-radius: 48px;
+  box-sizing: border-box;
+  padding: 1rem 3rem;
+  background-color: $black-color;
+  color: $white-color;
+
+  cursor: pointer;
+}
+
+// productInfo add to cart button
+.button__productInfoAdd {
+  @include h5__base--apercu;
+  align-self: flex-start;
+  display: inline-block;
+  border-radius: 48px;
+  box-sizing: border-box;
+  padding: 1rem 3rem;
+  margin-bottom: 40vh;
+}
+
+
+// UserSidebar buttons
+.button__userSidebar--edit {
+  @include p__base--apercu;
+  display: inline-block;
+  border: none;
+  border-radius: 24px;
+  box-sizing: border-box;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: $black-color;
+  color: $white-color;
+}
+
+.button__userSidebar--submit {
+  @include h5__base--apercu;
+  border: none;
+  border-radius: 24px;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: $black-color;
+  color: $white-color;
+}

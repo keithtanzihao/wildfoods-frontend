@@ -1,0 +1,43 @@
+.loginPage__ctn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0rem 5rem 5rem;
+}
+
+.loginPage__ctn--content {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 40%);
+  box-sizing: border-box;
+  padding: 2rem;
+  width: 50vw;
+}
+
+.loginPage__ctn--content > div:first-child {
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  padding-bottom: 2rem;
+}
+
+
+.loginPage__ctn--content > div:first-child > h1 {
+  @include h1__base--canela;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.loginPage__ctn--content > div:last-child {
+  @include p__base--apercu;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0rem;
+  font-size: 1.25rem;
+}
+
+.loginPage__ctn--content > div:last-child a {
+  color: $black-color;
+  font-family: apercuBold;
+  font-size: 1.25rem;
+  cursor: pointer;
+}

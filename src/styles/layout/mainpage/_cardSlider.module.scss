@@ -1,0 +1,54 @@
+
+.cardSlider__ctn {
+  position: relative;
+}
+
+.cardSlider__img--left,
+.cardSlider__img--right,
+.cardSlider__img--center {
+  width: 35vw;
+}
+
+.cardSlider__img--left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-20deg);
+}
+
+.cardSlider__img--right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(20deg);
+}
+
+.cardSlider__img--center {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: rotate(0deg);
+}
+
+.cardSlider__img--hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  opacity: 0;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	animation-duration: 1s;
+
+  width: 35vw;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

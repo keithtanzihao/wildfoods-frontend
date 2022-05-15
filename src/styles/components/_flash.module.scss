@@ -1,0 +1,12 @@
+
+.flash__ctn--success {
+  @include flash__base;
+  @include p__base;
+  background-color: $green-color;
+}
+
+.flash__ctn--fail {
+  @include flash__base;
+  @include p__base;
+  background-color: $red-color;
+}

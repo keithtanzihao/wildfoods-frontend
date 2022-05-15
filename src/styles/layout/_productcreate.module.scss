@@ -1,0 +1,43 @@
+.tableCreate {
+  overflow: scroll;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  // Might remove later
+  border-right: 4px solid black;
+  box-sizing: border-box;
+
+  max-width: calc(100vw - 15vw);
+  max-height: calc(100vh - 8vh);
+}
+
+.tableCreate > div:first-child {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.tableCreate > div > h1 {
+  @include h1__base;
+}
+
+.tableCreate__formCtn {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  
+  // Remove later
+  border-top: 4px solid black;
+  box-sizing: border-box;
+  
+  padding: 1rem;
+  width: 100%;
+  background-color: pink;
+}
+
+
+
+
+
+

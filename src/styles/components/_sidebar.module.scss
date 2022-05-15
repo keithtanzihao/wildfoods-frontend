@@ -1,0 +1,174 @@
+.sidebar {
+  position: fixed;
+  z-index: 12;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+// ------------------------------------------------------------------
+.sidebar__section--user {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  background-color: $sidebar-color1;
+}
+
+.sidebar__ctn--cart {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__ctn--cartItem {
+  display: flex;
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+
+// Wrapper div for cart item info except for img
+.sidebar__ctn--cartInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar__ctn--cartInfo > h5 {
+  @include h2__base--canela;
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.sidebar__ctn--cartInfo > div {
+  @include p__base--apercu;
+  display: flex;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.sidebar__ctn--cartInfo > div > p:first-child {
+  margin-right: 1rem;
+}
+
+
+
+.sidebar__ctn--cartItem > img {
+  width: 40%;
+}
+
+
+
+
+
+// ------------------------------------------------------------------
+// Category list 
+.sidebar__section--category {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  background-color: $sidebar-color1;
+}
+
+// Category list X and < icons
+.sidebar__ctn--icon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// Category list li
+.sidebar__ctn--content {
+  position: relative;
+  padding: 3rem;
+}
+
+.sidebar__ctn--content > h2 {
+  @include p__base--apercu;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.sidebar__ctn--content > ul > li {
+  @include h1__base--canela;
+  margin-bottom: 1.5rem;
+  color: $black-color;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+// For the rest of the li's
+.sidebar__ctn--content > ul > li:hover {
+  color: $white-color;
+}
+
+.sidebar__ctn--content > ul > li a {
+  text-decoration: none;
+  color: $black-color;
+  transition: color 0.3s;
+}
+
+// For only All Products
+.sidebar__ctn--content > ul > li a:hover {
+  color: $white-color;
+}
+
+// if selected li stays white
+.sidebar__ctn--content > ul > li.selectedCategory {
+  color: $white-color;
+}
+
+
+
+
+.sidebar__section--product {
+  position: relative;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  background-color: $sidebar-color2;
+}
+
+.sidebar__ctn--product {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.sidebar__ctn--productInfo {
+  width: 80%;
+  color: $black-color;
+  transition: color 0.3s;
+}
+
+.sidebar__ctn--productInfo:hover {
+  color: $white-color;
+}
+
+.sidebar__ctn--productInfo > h2 {
+  @include h2__base--canela;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar__ctn--productInfo > p {
+  @include p__base--apercu;
+}
+
+.sidebar__ctn--productImg > img {
+  height: 10vh; 
+}
+
+// Background of modal
+.sidebar__section--empty {
+  flex-grow: 1;
+  background-color: rgba(0,0,0,0.5);
+}

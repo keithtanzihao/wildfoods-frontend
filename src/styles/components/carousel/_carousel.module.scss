@@ -1,0 +1,38 @@
+.carouselCtn {
+  position: relative;
+  box-sizing: border-box;
+  padding: 5rem;
+  width: 100vw;
+}
+
+// container to contain everything into a card
+.carouselCtn__ctn--card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// title / header related stuff
+.carouselCtn__ctn--title {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.carouselCtn__ctn--title > h1 {
+  @include h1__base--canela;
+  margin-bottom: 1rem;
+}
+
+.carouselCtn__ctn--title > h5 {
+  @include h5__base--apercu;
+  width: 40vw;
+
+}
+
+// content / actual carousel related stuff
+.carouselCtn__ctn--content {
+  // height: 80vh;
+}
