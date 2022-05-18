@@ -5,7 +5,7 @@ import { TextInput, RadioInput, SelectOptionInput } from "../ui/Inputs";
 
 import styles from "../../styles/main.module.scss";
 
-const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
+import { BASE_URL } from "../../helpers/helper";
 
 function FilterRadio(props) {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -16,11 +16,7 @@ function FilterRadio(props) {
     const getData = async () => {
       try {
         const response = await axios.get(BASE_URL + props.apiUrl);
-        setRadioList(() => {
-          return response.data.map((data) => {
-            return data.title;
-          });
-        });
+        setRadioList(response.data);
       } catch (error) {
         console.log("filterRadio useEffect problem");
       }
@@ -29,10 +25,9 @@ function FilterRadio(props) {
     setHasLoaded(true);
   }, []);
 
-
   const toggleIsOpened = () => {
     setIsOpened(!isOpened);
-  }
+  };
 
   const properties = {
     name: props.name,
@@ -44,7 +39,10 @@ function FilterRadio(props) {
   if (hasLoaded) {
     return (
       <div className={`${styles["filterRadio__ctn"]}`}>
-        <div className={`${styles["filterRadio__headerCtn"]}`} onClick={toggleIsOpened}>
+        <div
+          className={`${styles["filterRadio__headerCtn"]}`}
+          onClick={toggleIsOpened}
+        >
           <h1>{props.label}</h1>
         </div>
         {isOpened && <RadioInput {...properties} />}
@@ -53,16 +51,13 @@ function FilterRadio(props) {
   }
 }
 
-
-
-
 function SortPrice(props) {
   const [isOpened, setIsOpened] = useState(false);
   const [optionList, setOptionList] = useState(props.options);
 
   const toggleIsOpened = () => {
     setIsOpened(!isOpened);
-  }
+  };
 
   const properties = {
     name: props.name,
@@ -73,7 +68,10 @@ function SortPrice(props) {
 
   return (
     <div className={`${styles["sortPrice__ctn"]}`}>
-      <div className={`${styles["sortPrice__headerCtn"]}`} onClick={toggleIsOpened}>
+      <div
+        className={`${styles["sortPrice__headerCtn"]}`}
+        onClick={toggleIsOpened}
+      >
         <h2>{props.label}</h2>
       </div>
       {isOpened && <SelectOptionInput {...properties} />}
@@ -81,16 +79,17 @@ function SortPrice(props) {
   );
 }
 
-
-
-
 function CheckAvaliableStock(props) {
   const [isOpened, setIsOpened] = useState(false);
-  const [radioList, setRadioList] = useState(["All Products", "In stock", "Out of stock"]);
+  const [radioList, setRadioList] = useState([
+    { id: 0, title: "All Products" },
+    { id: 1, title: "In stock" },
+    { id: 2, title: "Out of stock" },
+  ]);
 
   const toggleIsOpened = () => {
     setIsOpened(!isOpened);
-  }
+  };
 
   const properties = {
     name: props.name,
@@ -101,7 +100,10 @@ function CheckAvaliableStock(props) {
 
   return (
     <div className={`${styles["filterRadio__ctn"]}`}>
-      <div className={`${styles["filterRadio__headerCtn"]}`} onClick={toggleIsOpened}>
+      <div
+        className={`${styles["filterRadio__headerCtn"]}`}
+        onClick={toggleIsOpened}
+      >
         <h1>{props.label}</h1>
       </div>
       {isOpened && <RadioInput {...properties} />}
@@ -109,19 +111,12 @@ function CheckAvaliableStock(props) {
   );
 }
 
-
-
-
-
-
-
-
 function SearchText(props) {
   const [isOpened, setIsOpened] = useState(false);
 
   const toggleIsOpened = () => {
     setIsOpened(!isOpened);
-  }
+  };
 
   const properties = {
     name: props.name,
@@ -131,21 +126,15 @@ function SearchText(props) {
 
   return (
     <div className={`${styles["searchText__ctn"]}`}>
-      <div className={`${styles["searchText__headerCtn"]}`} onClick={toggleIsOpened}>
+      <div
+        className={`${styles["searchText__headerCtn"]}`}
+        onClick={toggleIsOpened}
+      >
         <h1>Search Products</h1>
       </div>
       {isOpened && <TextInput {...properties} />}
     </div>
   );
-
 }
 
-
-
-
-export {
-  FilterRadio,
-  SearchText,
-  CheckAvaliableStock,
-  SortPrice
-};
+export { FilterRadio, SearchText, CheckAvaliableStock, SortPrice };
