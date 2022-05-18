@@ -8,8 +8,9 @@ import Button from "../Button";
 import styles from "../../../styles/main.module.scss";
 import "react-multi-carousel/lib/styles.css";
 
+import { BASE_URL } from "../../../helpers/helper";
+
 export default function ProductCarousel(props) {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
 
   const [hasLoaded, setHasLoaded] = useState(false);
   const [productData, setProductData] = useState([]);
@@ -18,7 +19,7 @@ export default function ProductCarousel(props) {
     const getData = async () => {
       try {
         const products = await axios.get(
-          BASE_URL + "/product/category_title/tahinis"
+          BASE_URL + "/product/category_title/Tahinis"
         );
         setProductData(products.data);
       } catch (error) {
@@ -31,7 +32,7 @@ export default function ProductCarousel(props) {
 
   const renderProductData = () => {
     return productData.map((product) => {
-      return <ProductItem type="carousel" product={product} />;
+      return <ProductItem key={product.id} type="carousel" product={product} />;
     });
   };
 

@@ -226,15 +226,15 @@ function RadioInput(props) {
   const renderRadioButtons = () => {
     return props.radioList.map((item, index) => {
       return (
-        <label key={item}>
+        <label key={item.title}>
           <input
             type="radio"
             name={props.name}
-            value={index + 1}
+            value={item.id}
             onChange={updateTextInputTag}
-            checked={props.tableData[props.name] === index + 1}
+            checked={props.tableData[props.name] === item.id}
           />
-          <span>{item}</span>
+          <span>{item.title}</span>
         </label>
       )
     })
