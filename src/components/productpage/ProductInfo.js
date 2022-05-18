@@ -10,9 +10,9 @@ import CartAmountButton from "../ui/button/CartAmountButton";
 
 import styles from "../../styles/main.module.scss";
 
-export default function ProductInfo() {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
+import { BASE_URL } from "../../helpers/helper";
 
+export default function ProductInfo() {
   const navigate = useNavigate();
   const location = useLocation();
   

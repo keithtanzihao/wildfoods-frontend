@@ -15,9 +15,9 @@ import Pagination from "../ui/pagination/Pagination";
 import styles from "../../styles/main.module.scss";
 import pageHeader__productpage from "../../styles/vendors/images/jumbotron/pageHeader__productPage.jpeg";
 
-export default function ProductPage() {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
+import { BASE_URL } from "../../helpers/helper";
 
+export default function ProductPage() {
   const location = useLocation();
 
   const [pageNumber, setPageNumber] = useState(1);
@@ -44,8 +44,6 @@ export default function ProductPage() {
   useEffect(() => {
     const getData = async () => {
       try {
-        // Keeps firing request. Settle this later
-        // console.log(BASE_URL + `${location.pathname}/page/${pageNumber}`);
         const product = await axios.request({
           url: BASE_URL + `/product/page/${pageNumber}`,
           method: "get",
@@ -58,7 +56,6 @@ export default function ProductPage() {
           productData: product.data.product,
           paginationData: product.data.pagination,
         });
-        // console.log(product.data);
       } catch (error) {
         console.log("productIndex useEffect problem");
       }
