@@ -6,9 +6,9 @@ import Button from "../ui/Button";
 
 import styles from "../../styles/main.module.scss";
 
-export default function EditModal(props) {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
+import { BASE_URL } from "../../helpers/helper";
 
+export default function EditModal(props) {
   const { product, quantity, user_id, product_id } = props.cartItem;
 
   const [editQuantity, setEditQuantity] = useState({

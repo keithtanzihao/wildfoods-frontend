@@ -5,8 +5,9 @@ import { GrClose, GrPrevious } from "react-icons/gr";
 
 import styles from "../../styles/main.module.scss";
 
+import { BASE_URL } from "../../helpers/helper";
+
 export default function Sidebar(props) {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
 
   const [selectedCategory, setSelectedCategory] = useState(-1);
   const [apiData, setApiData] = useState({
@@ -22,7 +23,6 @@ export default function Sidebar(props) {
           ...apiData,
           categoryList: categories.data,
         });
-        console.log(categories.data);
       } catch (error) {
         console.log("sidebar useEffect problem");
       }

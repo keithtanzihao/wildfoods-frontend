@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 import AuthContext from "../../context/auth-context";
 import { GrClose, GrPrevious } from "react-icons/gr";
 
-// import { BASE_URL } from "../../helpers/helper";
+import { BASE_URL } from "../../helpers/helper";
 
 import EditModal from "./EditModal";
 import Button from "../ui/Button";
@@ -13,8 +13,6 @@ import Button from "../ui/Button";
 import styles from "../../styles/main.module.scss";
 
 export default function UserSidebar(props) {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
-
   let authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -65,12 +63,21 @@ export default function UserSidebar(props) {
   // Submit cart to order table
   const submitCart = async () => {
     let decoded = jwt_decode(userTokens.accessToken);
-    const stripeSession = await axios.get(BASE_URL + `/checkout/user/${decoded.id}`);
+    const stripeSession = await axios.get(
+      BASE_URL + `/checkout/user/${decoded.id}`
+    );
     window.location.href = stripeSession.data.stripeUrl;
+  };
+
+  const getCartTotalCost = () => {
+    let totalCost = 0;
+    for (let cartItem of cartData) {
+      totalCost += (cartItem.product.price / 100) * cartItem.quantity;
+    }
+    return totalCost;
   }
 
   const renderCartItems = () => {
-    console.log(cartData);
     return cartData.map((cartItem) => {
       const { product, quantity } = cartItem;
       return (
@@ -78,9 +85,16 @@ export default function UserSidebar(props) {
           <div className={`${styles["sidebar__ctn--cartInfo"]}`}>
             <h5>{product.title}</h5>
             <div>
-              <p>Quantity:</p>
-              <p>{quantity}</p>
+              <div className={`${styles["sidebar__ctn--quantityCost"]}`}>
+                <p>Quantity:</p>
+                <p>{quantity}</p>
+              </div>
+              <div className={`${styles["sidebar__ctn--quantityCost"]}`}>
+                <p>Cost:</p>
+                <p>${quantity * product.price / 100}</p>
+              </div>
             </div>
+
             <div>
               <Button
                 content="Edit"
@@ -119,12 +133,18 @@ export default function UserSidebar(props) {
           )}
           <ul>
             <li onClick={userLogout}>Logout</li>
-            <li>Orders</li>
+            <li>
+              <Link to={"/order"}>Orders</Link>
+            </li>
             <li onClick={updateIsCartOpen}>Cart</li>
 
             {isCartOpen && (
               <ul className={`${styles["sidebar__ctn--cart"]}`}>
                 {cartData && renderCartItems()}
+                <div className={`${styles["sidebar__ctn--cartTotalCost"]}`}>
+                  <h5>Total Cost:</h5>
+                  <h5>${getCartTotalCost()}</h5>
+                </div>
                 {cartData.length !== 0 && (
                   <Button
                     content="Submit"
