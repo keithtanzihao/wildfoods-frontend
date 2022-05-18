@@ -8,8 +8,9 @@ import styles from "../../styles/main.module.scss";
 // import almondImg from "../../styles/vendors/images/almond.webp";
 // import handImg from "../../styles/vendors/images/hand.svg";
 
+import { BASE_URL } from "../../helpers/helper";
+
 export default function ProductHightlight() {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
 
   const [hasLoaded, setHasLoaded] = useState(false);
   const [productData, setProductData] = useState([]);
@@ -18,7 +19,7 @@ export default function ProductHightlight() {
     const getData = async () => {
       try {
         const products = await axios.get(
-          BASE_URL + "/product/category_title/tahinis"
+          BASE_URL + "/product/category_title/Tahinis"
         );
         setProductData(products.data);
       } catch (error) {

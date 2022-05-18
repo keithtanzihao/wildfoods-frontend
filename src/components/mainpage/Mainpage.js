@@ -14,9 +14,9 @@ import ProductHighlight from "./ProductHighlight";
 import styles from "../../styles/main.module.scss";
 import jumbotron__mainpage from "../../styles/vendors/images/jumbotron/jumbotron__mainpage.webp";
 
-export default function Mainpage() {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
+import { BASE_URL } from "../../helpers/helper";
 
+export default function Mainpage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const updateIsSidebarOpen = () => {
