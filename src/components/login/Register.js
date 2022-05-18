@@ -11,8 +11,10 @@ import Button from "../ui/Button";
 import styles from "../../styles/main.module.scss";
 import pageHeader__register from "../../styles/vendors/images/jumbotron/pageHeader__register.jpeg";
 
+
+import { BASE_URL } from "../../helpers/helper";
+
 export default function Register() {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
 
   let navigate = useNavigate();
 

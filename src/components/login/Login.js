@@ -12,8 +12,9 @@ import Button from "../ui/Button";
 import styles from "../../styles/main.module.scss";
 import pageHeader__login from "../../styles/vendors/images/jumbotron/pageHeader__login.jpeg";
 
+import { BASE_URL } from "../../helpers/helper";
+
 export default function Login() {
-  const BASE_URL = "https://wildfoodsbackend.herokuapp.com";
 
   let navigate = useNavigate();
   let authCtx = useContext(AuthContext);
@@ -69,15 +70,12 @@ export default function Login() {
       });
       const { email, ...tokens } = payload.data
 
-      authCtx.updateTokens(tokens);
-      localStorage.setItem("tokens", JSON.stringify(tokens));
-
+      
+      authCtx.checkAndUpdateTokens(tokens.accessToken, tokens.refreshToken);
       console.log("-------------------");
-      // console.log(authCtx.getAuth());
 
       navigate("/products");
     } else {
-      // Need to make sure the errors pop out
       console.log("loginUserHandler validation error");
     }
   }
