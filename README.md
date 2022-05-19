@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# WildFoods 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![alt text](https://github.com/keithtanzihao/wildfoods-frontend/blob/main/src/styles/vendors/images/Screen%20Shot%202022-05-19%20at%208.05.46%20PM.png)
 
-## Available Scripts
+### Disclaimer
 
-In the project directory, you can run:
+The current project is a duplicate of the [WildSouls](https://www.wildsouls.gr/en/) e-commerce website and this project is solely for education purposes should not be mistaken for the actual site. Majority of the information found in this replicate from product information, images, to the brand icon is from Wildsouls.
 
-### `npm start`
+* Customer Frontend link: [here](https://lovely-gaufre-01d524.netlify.app/login)
+* Backend Admin link: [here](https://wildfoodsbackend.herokuapp.com/admin/login)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Project Summary
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Organisational Goals
 
-### `npm test`
+Sugar, palm oil, preservatives and a lot of other unnecessary substances are commonly found in many products sold by local supermarkets today, adulterating the magical flavours of natural raw foods. Here at WildFoods, we have always been a proponent of highlighting the value of natural ingredients and the incredible taste of simplicity. Thus we have set out to provide customers with a plethora of products which not only abides by this mantra but also tastes great.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Customer’s Goals
 
-### `npm run build`
+In a generation that places high emphasis on overall well-being, fuelling one’s body with nutritious food is the first step to achieving that goal. However, the delicious foods found in our local supermarkets often composed of multiple preservatives and often stripped off their original nutrients and fibres. Thus there has been a growing desire for shops which sells food products, free of these undesirable ingredients but still delicious and affordable.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# UI/UX
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Strategy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_Organisation:_
+  * **Objective:** 
+      * Centralised e-commerce website that focus on selling nuts, jams, related food products sourced from the wild. (Greece)
+      * Users are able to view common recipes made out from the various products sold by WildFoods (Will implement in the future)
 
-### `npm run eject`
+_User:_
+  * **Objective:** 
+      * To be able to add products to cart, checkout products within cart, view/track orders
+      * Account which saves customer information (only cart/order completed, will implement more in the future)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  * **Needs:**
+      * Search for nuts, jams, desired food products.
+      * Search up recipes which uses nuts, jams, food products sold by WildFoods (Will implement in the future)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  * **Demographics:**
+      * Customers of all ages
+      * Enthusiastic about healthy eating
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  * **Pain Point:** 
+      * Need to categorise/search products quickly
+      * Need to checkout products and track orders
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### User Stories / Acceptance Criteria
 
-## Learn More
+| User Stories               | Acceptance Criteria(s).    | 
+| -------------------------- |----------------------------| 
+| As a customer, I am look for Tahini related food products| Food products need to be searchable by category
+| As a customer, I am looking for the food product based on various filters| User must be able to search products based on name, order them by price, search by nutritioin/classification and lastly by availability
+| As a customer, I must be able to add a product to my cart and checkout my cart| Users must be able to add products to cart, edit/remove items from cart and submit them as an order to be processed by a payment gateway. This information must then be available to users to track status of order
+| As a customer, I must be able to create/access my account| Users must be able to register for a new account, only allow user with correct credentials from accessing information in this account. Prevents unauthorised access to user's cart/order information
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Scope
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_Functional Specifications:_
+  * Login page which allows users to create a new account or register for one
+  * Display products and showcase greater detail if product is selected
+  * Filter products based on name, nutrition, classification, availability and sort based on cost
+  * Save selected products to cart, process cart using Stripe payment gateway and showcase orders page with purchased products if payment is successful
 
-### Code Splitting
+_Content Requirements:_
+  * Show all products found in WildFoods store
+  * Show/retain cart information of user
+  * Show all orders made by user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+ _Non-functional Requirements:_
+  * Mobile Responsiveness
+      * Using media queries and flex-box
 
-### Analyzing the Bundle Size
+### Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Due to the lack of time, I was unable to completely implement features for all the extra tables ive created such as Recipie tables, etc. Thus i have left them out of the displayed SQLDBM image. (Will implement those tables in the future)
 
-### Making a Progressive Web App
+![alt text](https://github.com/keithtanzihao/wildfoods-frontend/blob/main/src/styles/vendors/images/Screen%20Shot%202022-05-19%20at%207.44.57%20PM.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The database design is developed on sqlDBM and shows the different relationships between the mysql tables. 
 
-### Advanced Configuration
+An ExpressJS backend server will thus be required to allow communication between our frontend reactJS client webpage and the WildFoods database. The admin page will however be build within the ExpressJS backend using handlebarsJS and will solely manage the creation/edit/delete of products/recipes and allow the administrator to manage the status of our products.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Surface
 
-### Deployment
+_Colors:_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![alt text](https://github.com/keithtanzihao/wildfoods-frontend/blob/main/src/styles/vendors/images/Screen%20Shot%202022-04-22%20at%203.33.22%20PM.png)
 
-### `npm run build` fails to minify
+* Palette colours that reminds customers of autumn were used for the base layout of the website’s pages.
+* Additional colours used in the different product pages are taken from WildSoul’s website. Each product has a different color theme and these colours are brighter compared to the base colour scheme to give emphasis to the product’s characteristic or what is being sold.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Font Scheme
+
+* Both Apercu and Canela fonts were used in this project. These fonts are currently utilised by the actual Wildsouls website and they provides an old school feel to the website and goes hand in hand with the colour scheme which aims to create a homely retro vibe which ties closely with the mantra of the company.
+
+
+# Technologies Used
+
+### Frontend
+* html
+* dart-scss / sass
+* axios
+* jwt-decode
+* reactjs
+* framer-motion
+* react-multi-carousel
+* simple-notify
+
+### Backend
+* body-parser
+* bookshelf
+* cloudinary
+* connect-flash
+* crypto
+* cors
+* csurf
+* db-migrate
+* dotenv
+* express
+* express-session
+* forms
+* hbs
+* jsonwebtoken
+* knext
+* stripe
+* wax-on
+
+### Others
+* Github
+* Netlify
+
+# Credits
+
+* Website's idea, UI, UX, product information
+    * [WildSouls](https://www.wildsouls.gr/en/)
+* Deployment steps
+    * Extracted and edited based on TGC's deployment guide
+
+
+
+
+
+
+
+
+
