@@ -1,12 +1,11 @@
 import React from "react";
 
 const AuthContext = React.createContext({
-  accessToken: "",
-  refreshToken: "",
+  authState: {},
   getAuth: () => {},
-  getEmail: () => {},
   resetAuth: () => {},
-  updateTokens: (userData) => {}
+  checkAndUpdateTokens: (accessToken, refresToken) => {},
+  userLogout: () => {},
 });
 
 export default AuthContext;

@@ -1,8 +1,10 @@
 import React from "react";
 
 const SidebarContext = React.createContext({
+  sidebarStaet: {},
   getSidebarState: () => {},
-  updateSidebarState: () => {}
+  updateIsSidebarOpen: () => {},
+  updateIsUserSidebarOpen: () => {}
 });
 
 export default SidebarContext;
