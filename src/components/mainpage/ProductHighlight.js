@@ -1,29 +1,23 @@
 import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
+import { apiUrl, axiosApiUrl } from "../../utility/axios";
 
 import Button from "../ui/Button";
 
 import styles from "../../styles/main.module.scss";
-// A route for this later ?
-// import almondImg from "../../styles/vendors/images/almond.webp";
-// import handImg from "../../styles/vendors/images/hand.svg";
 
-import { BASE_URL } from "../../helpers/helper";
-
+// Will implement this in the future
 export default function ProductHightlight() {
-
   const [hasLoaded, setHasLoaded] = useState(false);
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const products = await axios.get(
-          BASE_URL + "/product/category_title/Tahinis"
-        );
+        const products = await axiosApiUrl.get(apiUrl.productCategoryTahini);
         setProductData(products.data);
       } catch (error) {
-        console.log("productCarousel useEffect problem");
+        console.log("producthighlights useEffect problem");
       }
     };
     getData();
@@ -53,16 +47,7 @@ export default function ProductHightlight() {
           />
         </div>
 
-        <div className={`${styles["productHighligh__imgCtn"]}`}>
-          {/* <img
-            className={`${styles["productHighlight__img--almond"]}`}
-            src={almondImg}
-          />
-          <img
-            className={`${styles["productHighlight__img--hand"]}`}
-            src={handImg}
-          /> */}
-        </div>
+        <div className={`${styles["productHighligh__imgCtn"]}`}></div>
       </div>
     </div>
   );

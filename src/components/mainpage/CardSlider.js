@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
 
 import styles from "../../styles/main.module.scss";
