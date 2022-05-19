@@ -1,8 +1,11 @@
-import axios from "axios";
 import React, { useState, Fragment, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import { apiUrl, axiosApiUrl } from "../../utility/axios";
+
 import AuthContext from "../../context/auth-context";
+import { axiosHeaderConfig } from "../../utility/axios";
+import { flashMessage } from "../../utility/flash";
 
 import PageHeader from "../ui/jumbotron/PageHeader";
 import Button from "../ui/Button";
@@ -10,12 +13,9 @@ import CartAmountButton from "../ui/button/CartAmountButton";
 
 import styles from "../../styles/main.module.scss";
 
-import { BASE_URL } from "../../helpers/helper";
-
 export default function ProductInfo() {
   const navigate = useNavigate();
   const location = useLocation();
-  
   const authCtx = useContext(AuthContext);
 
   const [productData, setProductData] = useState({});
@@ -30,28 +30,19 @@ export default function ProductInfo() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const product = await axios.get(BASE_URL + `${location.pathname}`);
-        console.log(product.data);
-        // Potential source of error
+        const product = await axiosApiUrl.get(`${location.pathname}`);
         setProductData(product.data[0]);
         setHasLoaded(true);
       } catch (error) {
         console.log("productInfo useEffect problem");
       }
     };
-
-    setUserTokens(authCtx.getAuth());
-    if (userTokens.accessToken) {
-      getData();
-    }
-
-  }, [authCtx.getAuth(), userTokens]);
-
+    getData();
+  }, []);
 
   const updateCartQuantity = (amount) => {
-    setQuantity(amount)
-  }
-
+    setQuantity(amount);
+  };
 
   const renderClassifications = () => {
     return productData.classification.map((classification) => {
@@ -67,18 +58,30 @@ export default function ProductInfo() {
 
   const addProductToCart = async (event) => {
     event.preventDefault();
-    try {
-      navigate("/products");
-      await axios.post(BASE_URL + `/cart`, {
-        user_id: jwt_decode(userTokens.accessToken).id,
-        product_id: productData.id,
-        quantity: cartQuantity
-      })
-      
-    } catch(e) {
-      console.log("Add Product To Cart Error");
+    console.log("checkpoint 1")
+    console.log(authCtx.authState);
+    if (authCtx.authState.accessToken) {
+      try {
+        navigate("/products");
+        const addProductResponse = await axiosApiUrl.post(apiUrl.cart, {
+          user_id: jwt_decode(authCtx.authState.accessToken).id,
+          product_id: productData.id,
+          quantity: cartQuantity,
+        }, axiosHeaderConfig(authCtx.authState.accessToken))
+
+        if (!addProductResponse.data) {
+          flashMessage("error", "Not Enough Stock");
+        } else {
+          flashMessage("success", "Successfully added to cart");
+        }
+      } catch (e) {
+        console.log("Add Product To Cart Error");
+      }
+    } else {
+      flashMessage("error", "Please register/login");
+      navigate("/login");
     }
-  }
+  };
 
   if (hasLoaded) {
     return (
@@ -108,10 +111,10 @@ export default function ProductInfo() {
                   <h5>{productData.weight}g</h5>
                 </div>
 
-                <CartAmountButton 
-                  stock={productData.stock} 
-                  cartQuantity={cartQuantity} 
-                  updateCartQuantity={updateCartQuantity} 
+                <CartAmountButton
+                  stock={productData.stock}
+                  cartQuantity={cartQuantity}
+                  updateCartQuantity={updateCartQuantity}
                 />
 
                 <Button

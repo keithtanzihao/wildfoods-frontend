@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
@@ -6,8 +5,6 @@ import Sidebar from "../sidebar/Sidebar";
 import UserSidebar from "../sidebar/UserSidebar";
 import DiscountHeader from "../ui/DiscountHeader";
 import Navbar from "../ui/Navbar";
-
-import styles from "../../styles/main.module.scss";
 
 export default function ProductInfo() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -28,7 +25,6 @@ export default function ProductInfo() {
       {isUserSidebarOpen && (
         <UserSidebar updateIsUserSidebarOpen={updateIsUserSidebarOpen} />
       )}
-
       <header>
         <DiscountHeader />
         <Navbar
@@ -36,7 +32,6 @@ export default function ProductInfo() {
           updateIsUserSidebarOpen={updateIsUserSidebarOpen}
         />
       </header>
-
       <section>
         <Outlet />
       </section>
