@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiUrl, axiosApiUrl } from "../../utility/axios";
+import { flashMessage } from "../../utility/flash";
 
 import Navbar from "../ui/Navbar";
 import Sidebar from "../sidebar/Sidebar";
@@ -60,10 +61,16 @@ export default function Register() {
       if (errorMsg[key] !== "Valid") isValid = false;
     });
     if (isValid) {
-      let payload = await axiosApiUrl.post(apiUrl.userRegister, {
-        ...registerData
-      })
-      navigate("/login");
+      try {
+        let payload = await axiosApiUrl.post(apiUrl.userRegister, {
+          ...registerData
+        })
+        flashMessage("success", "Register Account Successful");
+        navigate("/login");
+      } catch(error) {
+        flashMessage("error", "Email Already Exist, Try Another");
+      }
+      
     } else {
       console.log("registerUserHandler validation error");
     }

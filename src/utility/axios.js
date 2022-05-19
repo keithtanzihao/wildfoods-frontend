@@ -18,8 +18,8 @@ export const apiUrl = {
 
 export const axiosApiUrl = axios.create({
   // For testing on local machine
-  // baseURL: "http://localhost:3001"
-  baseURL: "https://wildfoodsbackend.herokuapp.com"
+  baseURL: "http://localhost:3001"
+  // baseURL: "https://wildfoodsbackend.herokuapp.com"
 })
 
 export const axiosHeaderConfig = (token) => {

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { apiUrl, axiosApiUrl, axiosHeaderConfig } from "../../utility/axios";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../context/auth-context";
@@ -12,7 +12,6 @@ import styles from "../../styles/main.module.scss";
 
 export default function UserSidebar(props) {
   let authCtx = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const [cartData, setCartData] = useState([]);
   const [userTokens, setUserTokens] = useState({

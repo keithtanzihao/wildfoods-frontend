@@ -2,6 +2,7 @@ import React, { Fragment, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiUrl, axiosApiUrl } from "../../utility/axios";
 import AuthContext from "../../context/auth-context";
+import { flashMessage } from "../../utility/flash";
 
 import Navbar from "../ui/Navbar";
 import Sidebar from "../sidebar/Sidebar";
@@ -60,12 +61,17 @@ export default function Login() {
       if (errorMsg[key] !== "Valid") isValid = false;
     });
     if (isValid) {
-      let payload = await axiosApiUrl.post(apiUrl.userLogin, {
-        ...loginData,
-      })
-      const { email, ...tokens } = payload.data;
-      authCtx.checkAndUpdateTokens(tokens.accessToken, tokens.refreshToken);
-      navigate("/products");
+      try {
+        let payload = await axiosApiUrl.post(apiUrl.userLogin, {
+          ...loginData,
+        })
+        const { email, ...tokens } = payload.data;
+        authCtx.checkAndUpdateTokens(tokens.accessToken, tokens.refreshToken);
+        flashMessage("success", "Login Successful");
+        navigate("/products");
+      } catch(error) {
+        flashMessage("error", "Invalid Username/Password");
+      }
     } else {
       console.log("loginUserHandler validation error");
     }
