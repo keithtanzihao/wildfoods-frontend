@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from "react";
-
 import {
   SearchText,
   FilterRadio,
@@ -7,7 +6,6 @@ import {
   SortPrice,
 } from "../filter/FilterItem";
 import Button from "../ui/Button";
-
 import styles from "../../styles/main.module.scss";
 
 export default function Filter(props) {

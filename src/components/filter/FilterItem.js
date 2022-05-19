@@ -1,11 +1,8 @@
-import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
-
+import { apiUrl, axiosApiUrl } from "../../utility/axios";
 import { TextInput, RadioInput, SelectOptionInput } from "../ui/Inputs";
-
 import styles from "../../styles/main.module.scss";
 
-import { BASE_URL } from "../../helpers/helper";
 
 function FilterRadio(props) {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -15,7 +12,7 @@ function FilterRadio(props) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(BASE_URL + props.apiUrl);
+        const response = await axiosApiUrl.get(props.apiUrl);
         setRadioList(response.data);
       } catch (error) {
         console.log("filterRadio useEffect problem");
@@ -51,6 +48,7 @@ function FilterRadio(props) {
   }
 }
 
+
 function SortPrice(props) {
   const [isOpened, setIsOpened] = useState(false);
   const [optionList, setOptionList] = useState(props.options);
@@ -78,6 +76,7 @@ function SortPrice(props) {
     </div>
   );
 }
+
 
 function CheckAvaliableStock(props) {
   const [isOpened, setIsOpened] = useState(false);
@@ -110,6 +109,7 @@ function CheckAvaliableStock(props) {
     </div>
   );
 }
+
 
 function SearchText(props) {
   const [isOpened, setIsOpened] = useState(false);
