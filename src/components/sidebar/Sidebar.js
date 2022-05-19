@@ -1,11 +1,9 @@
-import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiUrl, axiosApiUrl } from "../../utility/axios";
 import { GrClose, GrPrevious } from "react-icons/gr";
 
 import styles from "../../styles/main.module.scss";
-
-import { BASE_URL } from "../../helpers/helper";
 
 export default function Sidebar(props) {
 
@@ -18,7 +16,7 @@ export default function Sidebar(props) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const categories = await axios.get(BASE_URL + "/category");
+        const categories = await axiosApiUrl.get(apiUrl.category);
         setApiData({
           ...apiData,
           categoryList: categories.data,
@@ -31,9 +29,7 @@ export default function Sidebar(props) {
   }, []);
 
   const getProductFromCategory = async (categoryID, categoryIndex) => {
-    let categoryProducts = await axios.get(
-      BASE_URL + `/product/category_id/${categoryID}`
-    );
+    let categoryProducts = await axiosApiUrl.get(`${apiUrl.productCategoryId}${categoryID}`);
     setApiData({
       ...apiData,
       categoryData: categoryProducts.data,
@@ -104,7 +100,6 @@ export default function Sidebar(props) {
             onClick={props.updateIsSidebarOpen}
           />
         </div>
-
         <div className={`${styles["sidebar__ctn--content"]}`}>
           <h2>Categories</h2>
           <ul>
@@ -115,9 +110,7 @@ export default function Sidebar(props) {
           </ul>
         </div>
       </div>
-
       {apiData.categoryData.length !== 0 && renderProductList()}
-
       <div
         className={`${styles["sidebar__section--empty"]}`}
         onClick={props.updateIsSidebarOpen}

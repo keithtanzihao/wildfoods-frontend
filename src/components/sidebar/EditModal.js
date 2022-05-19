@@ -1,14 +1,15 @@
-import axios from "axios";
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useState, useContext, useEffect } from "react";
+import { apiUrl, axiosApiUrl, axiosHeaderConfig } from "../../utility/axios";
+import AuthContext from "../../context/auth-context";
 
 import { TextInputValidate } from "../ui/Inputs";
 import Button from "../ui/Button";
 
 import styles from "../../styles/main.module.scss";
 
-import { BASE_URL } from "../../helpers/helper";
-
 export default function EditModal(props) {
+  const authContext = useContext(AuthContext);
+
   const { product, quantity, user_id, product_id } = props.cartItem;
 
   const [editQuantity, setEditQuantity] = useState({
@@ -19,19 +20,24 @@ export default function EditModal(props) {
     quantity: "",
   });
 
+  useEffect(() => {});
+
   const submitEditQuantity = async (event) => {
     event.preventDefault();
-    await axios.put(BASE_URL + `/cart/user/${user_id}/product/${product_id}/quantity/`, {
-      quantity: editQuantity.quantity
-    })
+    await axiosApiUrl.put(`/cart/user/${user_id}/product/${product_id}/quantity/`, {
+      quantity: editQuantity.quantity,
+    }, axiosHeaderConfig(authContext.authState.accessToken));
     props.setIsEditModalOpen(false);
-  }
+  };
 
   const submitRemoveCartItem = async (event) => {
     event.preventDefault();
-    await axios.delete(BASE_URL + `/cart/user/${user_id}/product/${product_id}/`);
+    await axiosApiUrl.delete(
+      `/cart/user/${user_id}/product/${product_id}/`,
+      axiosHeaderConfig(authContext.authState.accessToken)
+    )
     props.setIsEditModalOpen(false);
-  }
+  };
 
   let properties = {
     name: "quantity",
@@ -69,9 +75,11 @@ export default function EditModal(props) {
             />
           </div>
         </div>
-        <img className={`${styles["editModal__ctn--img"]}`} src={product.img_url} />
+        <img
+          className={`${styles["editModal__ctn--img"]}`}
+          src={product.img_url}
+        />
       </div>
-
       <div
         className={`${styles["modal__empty"]}`}
         onClick={props.updateIsEditModalOpen}

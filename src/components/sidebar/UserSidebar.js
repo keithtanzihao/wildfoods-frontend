@@ -1,11 +1,9 @@
-import axios from "axios";
 import React, { Fragment, useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { apiUrl, axiosApiUrl, axiosHeaderConfig } from "../../utility/axios";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../context/auth-context";
 import { GrClose, GrPrevious } from "react-icons/gr";
-
-import { BASE_URL } from "../../helpers/helper";
 
 import EditModal from "./EditModal";
 import Button from "../ui/Button";
@@ -27,17 +25,18 @@ export default function UserSidebar(props) {
   const [editModalOpenData, setEditModalOpenData] = useState({});
 
   useEffect(() => {
-    console.log(BASE_URL);
     const getData = async (userId) => {
       try {
         let decoded = jwt_decode(userTokens.accessToken);
-        const cartData = await axios.get(BASE_URL + `/cart/user/${decoded.id}`);
+        const cartData = await axiosApiUrl.get(
+          `${apiUrl.cartUser}${decoded.id}`,
+          axiosHeaderConfig(userTokens.accessToken)
+        );
         setCartData(cartData.data);
       } catch (error) {
         console.log("usersidebar useEffect problem");
       }
     };
-
     setUserTokens(authCtx.getAuth());
     if (userTokens.accessToken) {
       getData();
@@ -63,8 +62,9 @@ export default function UserSidebar(props) {
   // Submit cart to order table
   const submitCart = async () => {
     let decoded = jwt_decode(userTokens.accessToken);
-    const stripeSession = await axios.get(
-      BASE_URL + `/checkout/user/${decoded.id}`
+    const stripeSession = await axiosApiUrl.get(
+      `${apiUrl.checkoutUser}${decoded.id}`,
+      axiosHeaderConfig(decoded.id)
     );
     window.location.href = stripeSession.data.stripeUrl;
   };
@@ -74,8 +74,8 @@ export default function UserSidebar(props) {
     for (let cartItem of cartData) {
       totalCost += (cartItem.product.price / 100) * cartItem.quantity;
     }
-    return totalCost;
-  }
+    return totalCost.toFixed(2);
+  };
 
   const renderCartItems = () => {
     return cartData.map((cartItem) => {
@@ -91,10 +91,9 @@ export default function UserSidebar(props) {
               </div>
               <div className={`${styles["sidebar__ctn--quantityCost"]}`}>
                 <p>Cost:</p>
-                <p>${quantity * product.price / 100}</p>
+                <p>${(quantity * product.price) / 100}</p>
               </div>
             </div>
-
             <div>
               <Button
                 content="Edit"
@@ -118,7 +117,6 @@ export default function UserSidebar(props) {
           setIsEditModalOpen={setIsEditModalOpen}
         />
       )}
-
       <div className={`${styles["sidebar__section--user"]}`}>
         <div className={`${styles["sidebar__ctn--icon"]}`}>
           <GrClose
@@ -126,7 +124,6 @@ export default function UserSidebar(props) {
             onClick={props.updateIsUserSidebarOpen}
           />
         </div>
-
         <div className={`${styles["sidebar__ctn--content"]}`}>
           {userTokens.accessToken && (
             <h2>{jwt_decode(userTokens.accessToken).email}</h2>
@@ -137,7 +134,6 @@ export default function UserSidebar(props) {
               <Link to={"/order"}>Orders</Link>
             </li>
             <li onClick={updateIsCartOpen}>Cart</li>
-
             {isCartOpen && (
               <ul className={`${styles["sidebar__ctn--cart"]}`}>
                 {cartData && renderCartItems()}
@@ -157,7 +153,6 @@ export default function UserSidebar(props) {
           </ul>
         </div>
       </div>
-
       <div
         className={`${styles["sidebar__section--empty"]}`}
         onClick={props.updateIsUserSidebarOpen}
