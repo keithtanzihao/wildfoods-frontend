@@ -71,9 +71,71 @@ _Content Requirements:_
 
 ### Structure
 
+Due to the lack of time, I was unable to completely implement features for all the extra tables ive created such as Recipie tables, etc. Thus i have left them out of the displayed SQLDBM image. (Will implement those tables in the future)
+
+![alt text](https://github.com/keithtanzihao/wildfoods-frontend/blob/main/src/styles/vendors/images/Screen%20Shot%202022-05-19%20at%207.44.57%20PM.png)
+
 The database design is developed on sqlDBM and shows the different relationships between the mysql tables. 
 
 An ExpressJS backend server will thus be required to allow communication between our frontend reactJS client webpage and the WildFoods database. The admin page will however be build within the ExpressJS backend using handlebarsJS and will solely manage the creation/edit/delete of products/recipes and allow the administrator to manage the status of our products.
+
+### Surface
+
+_Colors:_
+
+![alt text](https://github.com/keithtanzihao/wildfoods-frontend/blob/main/src/styles/vendors/images/Screen%20Shot%202022-04-22%20at%203.33.22%20PM.png)
+
+* Palette colours that reminds customers of autumn were used for the base layout of the website’s pages.
+* Additional colours used in the different product pages are taken from WildSoul’s website. Each product has a different color theme and these colours are brighter compared to the base colour scheme to give emphasis to the product’s characteristic or what is being sold.
+
+
+Font Scheme
+
+* Both Apercu and Canela fonts were used in this project. These fonts are currently utilised by the actual Wildsouls website and they provides an old school feel to the website and goes hand in hand with the colour scheme which aims to create a homely retro vibe which ties closely with the mantra of the company.
+
+
+# Technologies Used
+
+### Frontend
+* html
+* dart-scss / sass
+* axios
+* jwt-decode
+* reactjs
+* framer-motion
+* react-multi-carousel
+* simple-notify
+
+### Backend
+* body-parser
+* bookshelf
+* cloudinary
+* connect-flash
+* crypto
+* cors
+* csurf
+* db-migrate
+* dotenv
+* express
+* express-session
+* forms
+* hbs
+* jsonwebtoken
+* knext
+* stripe
+* wax-on
+
+### Others
+* Github
+* Netlify
+
+# Credits
+
+* Website's idea, UI, UX, product information
+    * [WildSouls](https://www.wildsouls.gr/en/)
+* Deployment steps
+    * Extracted and edited based on TGC's deployment guide
+
 
 
 
