@@ -6,7 +6,7 @@
 
 The current project is a duplicate of the [WildSouls](https://www.wildsouls.gr/en/) e-commerce website and this project is solely for education purposes should not be mistaken for the actual site. Majority of the information found in this replicate from product information, images, to the brand icon is from Wildsouls.
 
-* Customer Frontend link: [here](https://app.netlify.com/sites/lovely-gaufre-01d524/overview)
+* Customer Frontend link: [here](https://lovely-gaufre-01d524.netlify.app/login)
 * Backend Admin link: [here](https://wildfoodsbackend.herokuapp.com/admin/login)
 
 # Project Summary
