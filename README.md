@@ -1,5 +1,7 @@
 # WildFoods 
 
+![alt text](https://github.com/keithtanzihao/wildfoods-frontend/blob/main/src/styles/vendors/images/Screen%20Shot%202022-05-19%20at%208.05.46%20PM.png)
+
 ### Disclaimer
 
 The current project is a duplicate of the [WildSouls](https://www.wildsouls.gr/en/) e-commerce website and this project is solely for education purposes should not be mistaken for the actual site. Majority of the information found in this replicate from product information, images, to the brand icon is from Wildsouls.
