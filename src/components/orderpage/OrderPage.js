@@ -1,12 +1,10 @@
-import axios from "axios";
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import { apiUrl, axiosApiUrl, axiosHeaderConfig } from "../../utility/axios";
 
 import SidebarContext from "../../context/sidebarContext/sidebar-context";
 import AuthContext from "../../context/auth-context";
-
-import { BASE_URL } from "../../helpers/helper";
 
 import DiscountHeader from "../ui/DiscountHeader";
 import Navbar from "../ui/Navbar";
@@ -28,8 +26,9 @@ export default function OrderPage() {
       if (authCtx.authState.accessToken) {
         try {
           let decoded = jwt_decode(authCtx.authState.accessToken);
-          const orders = await axios.get(
-            BASE_URL + `/order/user/${decoded.id}`
+          const orders = await axiosApiUrl.get(
+            `${apiUrl.orderUser}${decoded.id}`,
+            axiosHeaderConfig(authCtx.authState.accessToken)
           );
           setOrderState(orders.data);
         } catch (error) {
@@ -60,8 +59,7 @@ export default function OrderPage() {
               <p>{timeData[0]}</p>
               <p>{timeData[1]}</p>
             </div>
-            <p>{orderItem.order_ref}</p>
-
+            <p className={`${styles["orderpage__data--orderRef"]}`}>{orderItem.order_ref}</p>
             <p>{orderItem.quantity}</p>
             <p>{orderItem.total_cost}</p>
             <p>{orderItem.status.title}</p>
@@ -80,7 +78,6 @@ export default function OrderPage() {
           updateIsUserSidebarOpen={sidebarCtx.updateIsUserSidebarOpen}
         />
       )}
-
       <header>
         <DiscountHeader />
         <Navbar
@@ -88,22 +85,18 @@ export default function OrderPage() {
           updateIsUserSidebarOpen={sidebarCtx.updateIsUserSidebarOpen}
         />
       </header>
-
       <section>
         <PageHeader content="Orders" image={pageHeader__productpage} />
-
         <div className={`${styles["orderpage__ctn"]}`}>
           <ul className={`${styles["orderpage__columnCtn"]}`}>
             <li>Product</li>
             <li>Image</li>
             <li>Purchase Date</li>
-            <li>Order Ref</li>
-
+            <li className={`${styles["orderpage__data--orderRef"]}`}>Order Ref</li>
             <li>Quantity</li>
             <li>Cost</li>
             <li>Status</li>
           </ul>
-
           <ul className={`${styles["orderpage__dataCtn"]}`}>
             {renderOrders()}
           </ul>
@@ -112,12 +105,3 @@ export default function OrderPage() {
     </main>
   );
 }
-
-
-
-
-// if (localStorage.getItem("token")) {
-//   console.log("testing");
-// } else {
-//   console.log("not working")
-// }
