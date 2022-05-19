@@ -98,11 +98,8 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
-  height: 30vh;
 }
 
-.productItem__ctn--content > div {
-}
 
 .productItem__ctn--content > div h1 {
   @include h2__base--canela;
@@ -119,10 +116,6 @@
 @media screen and (max-width: 1025px) {
   .productItem {
     width: calc((80vw - 10rem) / 2 - 1rem);
-  }
-
-  .productItem__ctn--content {
-    height: 20vh;
   }
 }
 
