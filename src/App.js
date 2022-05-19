@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
@@ -20,19 +19,14 @@ export default function App() {
     <AuthProvider>
       <SidebarProvider>
         <Routes>
-          
           <Route path="" element={<Mainpage />} />
           <Route path="products" element={<ProductPage />} />
-
           <Route path="product/" element={<ProductInfoCtn />}>
             <Route path=":id" element={<ProductInfo />} />
           </Route>
-
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />          
-
           <Route path="order" element={<OrderPage />} />
-
         </Routes>
       </SidebarProvider>
     </AuthProvider>
