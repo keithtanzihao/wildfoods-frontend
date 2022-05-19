@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { apiUrl, axiosApiUrl } from "../../utility/axios";
 
 import Navbar from "../ui/Navbar";
 import Sidebar from "../sidebar/Sidebar";
@@ -11,11 +12,7 @@ import Button from "../ui/Button";
 import styles from "../../styles/main.module.scss";
 import pageHeader__register from "../../styles/vendors/images/jumbotron/pageHeader__register.jpeg";
 
-
-import { BASE_URL } from "../../helpers/helper";
-
 export default function Register() {
-
   let navigate = useNavigate();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,7 +22,6 @@ export default function Register() {
     email: "",
     password: "",
   });
-
   const [errorMsg, setErrorMsg] = useState({
     first_name: "",
     last_name: "",
@@ -48,33 +44,27 @@ export default function Register() {
             errorMsg: errorMsg,
             setErrorMsg: setErrorMsg,
           };
-
           if (key === "password") {
             return <TextInputValidate key={key} type="password" {...properties} />
           } else {
             return <TextInputValidate key={key} type="text" {...properties} />;
           }
-
         })}
       </Fragment>
     );
   };
 
   const registerUserHandler = async () => {
-
     let isValid = true;
     Object.keys(errorMsg).map((key) => {
       if (errorMsg[key] !== "Valid") isValid = false;
     });
-
     if (isValid) {
-      let payload = await axios.post(BASE_URL + "/user/register", { 
-        ...registerData 
-      });
-      console.log(payload.data);
+      let payload = await axiosApiUrl.post(apiUrl.userRegister, {
+        ...registerData
+      })
       navigate("/login");
     } else {
-      // Need to make sure the errors pop out
       console.log("registerUserHandler validation error");
     }
   }
@@ -82,16 +72,12 @@ export default function Register() {
   return (
     <main className={`${styles["loginPage"]}`}>
       {isSidebarOpen && <Sidebar updateIsSidebarOpen={updateIsSidebarOpen} />}
-
       <header>
         <Navbar updateIsSidebarOpen={updateIsSidebarOpen} />
       </header>
-
       <section>
         <PageHeader content="Register" image={pageHeader__register} />
-
         <div className={`${styles["loginPage__ctn"]}`}>
-
           <div className={`${styles["loginPage__ctn--content"]}`}>
             <div>
               <h1>Hi There :)</h1>
@@ -102,15 +88,11 @@ export default function Register() {
                 onClick={registerUserHandler}
               />
             </div>
-
             <div>
               <p>Already a customer ? <Link to={"/login"}>Login here</Link></p>
             </div>
-
           </div>
-
         </div>
-
       </section>
     </main>
   );

@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { Fragment, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { apiUrl, axiosApiUrl } from "../../utility/axios";
 import AuthContext from "../../context/auth-context";
 
 import Navbar from "../ui/Navbar";
@@ -12,10 +12,7 @@ import Button from "../ui/Button";
 import styles from "../../styles/main.module.scss";
 import pageHeader__login from "../../styles/vendors/images/jumbotron/pageHeader__login.jpeg";
 
-import { BASE_URL } from "../../helpers/helper";
-
 export default function Login() {
-
   let navigate = useNavigate();
   let authCtx = useContext(AuthContext);
 
@@ -24,7 +21,6 @@ export default function Login() {
     email: "",
     password: "",
   });
-
   const [errorMsg, setErrorMsg] = useState({
     email: "",
     password: "",
@@ -63,36 +59,27 @@ export default function Login() {
     Object.keys(errorMsg).map((key) => {
       if (errorMsg[key] !== "Valid") isValid = false;
     });
-
     if (isValid) {
-      let payload = await axios.post(BASE_URL + "/user/login", {
-        ...loginData
-      });
-      const { email, ...tokens } = payload.data
-
-      
+      let payload = await axiosApiUrl.post(apiUrl.userLogin, {
+        ...loginData,
+      })
+      const { email, ...tokens } = payload.data;
       authCtx.checkAndUpdateTokens(tokens.accessToken, tokens.refreshToken);
-      console.log("-------------------");
-
       navigate("/products");
     } else {
       console.log("loginUserHandler validation error");
     }
-  }
+  };
 
   return (
     <main className={`${styles["loginPage"]}`}>
       {isSidebarOpen && <Sidebar updateIsSidebarOpen={updateIsSidebarOpen} />}
-
       <header>
         <Navbar updateIsSidebarOpen={updateIsSidebarOpen} />
       </header>
-
       <section>
         <PageHeader content="Login" image={pageHeader__login} />
-
         <div className={`${styles["loginPage__ctn"]}`}>
-
           <div className={`${styles["loginPage__ctn--content"]}`}>
             <div>
               <h1>Welcome Back !!</h1>
@@ -103,23 +90,14 @@ export default function Login() {
                 onClick={loginUserHandler}
               />
             </div>
-
             <div>
-              <p>Not a customer yet ? <Link to={"/register"}>Register here</Link></p>
+              <p>
+                Not a customer yet ? <Link to={"/register"}>Register here</Link>
+              </p>
             </div>
-
           </div>
-
         </div>
-
       </section>
     </main>
   );
 }
-
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrZWl0aHRhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTIyNDYyMTcsImV4cCI6MTY1MjI0NzExN30.cM79qh5YaXRsxqQX3rG8JZepsIuBReZmEVG57DXWUZ8
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrZWl0aHRhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTIyNDYyMTcsImV4cCI6MTY1MjI0NzExN30.cM79qh5YaXRsxqQX3rG8JZepsIuBReZmEVG57DXWUZ8
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrZWl0aHRhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTIyNDYyMTcsImV4cCI6MTY1MjMzMjYxN30.3NV4031wMBqcBrfGYOC59_Mn12oVjgPtvUKJnDWI2aA
