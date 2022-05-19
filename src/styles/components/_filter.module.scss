@@ -18,7 +18,7 @@
 }
 
 .sortPrice__headerCtn {
-  @include h2__base--canela;
+  @include label__base;
   padding: 1rem 0rem;
 }
 
@@ -40,7 +40,7 @@
 
 // Search Text header container which has h1
 .searchText__headerCtn {
-  @include h2__base--canela;
+  @include label__base;
   padding: 1rem 0rem;
 }
 
@@ -115,5 +115,16 @@
 
 
 
+@media screen and (max-width: 376px) {
+  // .filterRadio__headerCtn,
+  // .sortPrice__headerCtn,
+  // .searchText__headerCtn {
+  //   font-size: 1rem;
+  // }
 
+  // .radioInput__ctn label span {
+  //   font-size: 0.5rem;
+  // }
 
+  
+}

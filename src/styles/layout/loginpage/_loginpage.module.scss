@@ -28,16 +28,30 @@
 }
 
 .loginPage__ctn--content > div:last-child {
-  @include p__base--apercu;
   display: flex;
   justify-content: center;
   margin: 2rem 0rem;
-  font-size: 1.25rem;
+}
+
+.loginPage__ctn--content > div:last-child p {
+  @include p__base--apercu;
 }
 
 .loginPage__ctn--content > div:last-child a {
+  @include p__base--apercu;
   color: $black-color;
   font-family: apercuBold;
-  font-size: 1.25rem;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 426px) {
+  .loginPage__ctn {
+    padding: 0rem;
+  }
+
+  .loginPage__ctn--content {
+    padding: 2rem;
+    width: 100vw;
+  }
 }

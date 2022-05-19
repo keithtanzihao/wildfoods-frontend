@@ -8,5 +8,6 @@
 
 .discountHeader > p {
   @include p__base;
+  text-align: center;
   color: $white-color;
 }

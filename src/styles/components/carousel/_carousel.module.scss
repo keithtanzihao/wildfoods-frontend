@@ -27,12 +27,19 @@
 }
 
 .carouselCtn__ctn--title > h5 {
-  @include h5__base--apercu;
+  @include h6__base--apercu;
   width: 40vw;
 
 }
 
-// content / actual carousel related stuff
-.carouselCtn__ctn--content {
-  // height: 80vh;
+
+@media screen and (max-width: 426px) {
+  .carouselCtn {
+    padding: 1rem;
+  }
+
+  .carouselCtn__ctn--title > h5 {
+    @include h6__base--apercu;
+    width: 70vw;
+  }
 }

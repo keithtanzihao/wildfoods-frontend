@@ -1,4 +1,3 @@
-
 a {
   cursor: pointer;
 }
@@ -35,9 +34,9 @@ a {
 .button__product--buy {
   @include button__base;
   border: none;
-  border-radius: 24px;
+  border-radius: 48px;
   padding: 1rem;
-  width: 10rem;
+  width: 20rem;
 }
 
 .button__mantra--discover {
@@ -50,8 +49,6 @@ a {
   color: $white-color;
 }
 
-
-
 // Jumbotron mainpage button
 .button__jumbotron--mainpage {
   @include button__base--noBorder;
@@ -60,8 +57,7 @@ a {
   color: $white-color;
 }
 
-
-// Pagination Left and right buttons 
+// Pagination Left and right buttons
 .button__pagination--left {
   border: none;
   border-top-left-radius: 48px;
@@ -132,7 +128,6 @@ a {
   margin-bottom: 40vh;
 }
 
-
 // UserSidebar buttons
 .button__userSidebar--edit {
   @include p__base--apercu;
@@ -155,4 +150,63 @@ a {
   padding: 0.5rem 1rem;
   background-color: $black-color;
   color: $white-color;
+}
+
+@media screen and (max-width: 1441px) {
+  .button__product--buy {
+    @include button__base;
+    border: none;
+    border-radius: 48px;
+    padding: 1rem;
+    width: 10rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .button__jumbotron--mainpage {
+    @include button__base--noBorder;
+    width: 60%;
+    background-color: $black-color;
+    color: $white-color;
+  }
+
+  .button__product--buy {
+    @include button__base;
+    border: none;
+    border-radius: 48px;
+    padding: 1rem;
+    width: 10rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .button__jumbotron--mainpage {
+    @include button__base--noBorder;
+    width: 100%;
+    background-color: $black-color;
+    color: $white-color;
+  }
+
+  .button__product--buy {
+    @include button__base;
+    border: none;
+    border-radius: 48px;
+    padding: 1rem;
+    width: 10rem;
+  }
+
+  .button__pagination--left {  
+    height: 4rem;
+    padding: 0.5rem;
+  }
+
+  .button__pagination--right {
+    height: 4rem;
+    padding: 0.5rem;
+  }
+
+  .button__productInfoAdd {
+    margin-bottom: 15vh;
+  }
 }

@@ -20,8 +20,6 @@ svg.icon__sidebar--back > polyline {
   stroke-width: 4;
 }
 
-
-
 // Pagination prev and next arrows
 .icon__pagination--prev,
 .icon__pagination--next {
@@ -37,7 +35,6 @@ svg.icon__pagination--next > polyline {
   stroke: $white-color;
 }
 
-
 // cartAmountButton add / minus icons
 .icon__cartAmountButton--add,
 .icon__cartAmountButton--minus {
@@ -51,4 +48,17 @@ svg.icon__pagination--next > polyline {
 .icon__cartAmountButton--minus > path {
   stroke-width: 4;
   stroke: $white-color;
+}
+
+@media screen and (max-width: 426px) {
+  .icon__pagination--prev,
+  .icon__pagination--next {
+    font-size: 1rem;
+  }
+
+  svg.icon__pagination--prev > polyline,
+  svg.icon__pagination--next > polyline {
+    stroke-width: 3;
+    stroke: $white-color;
+  }
 }

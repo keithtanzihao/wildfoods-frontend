@@ -16,7 +16,6 @@
 }
 
 .sidebar__ctn--cart {
-  overflow: scroll;
   display: flex;
   flex-direction: column;
 }
@@ -30,6 +29,17 @@
   width: 100%;
 }
 
+.sidebar__ctn--cartTotalCost {
+  @include h2__base--canela;
+  display: flex;
+  border-bottom: 2px solid $black-color;
+  box-sizing: border-box;
+  padding: 1rem 0rem;
+}
+
+.sidebar__ctn--cartTotalCost > h5:first-child {
+  margin-right: 1rem;
+}
 
 // Wrapper div for cart item info except for img
 .sidebar__ctn--cartInfo {
@@ -49,15 +59,18 @@
 .sidebar__ctn--cartInfo > div {
   @include p__base--apercu;
   display: flex;
+  flex-direction: column;
+}
+
+.sidebar__ctn--quantityCost {
+  display: flex;
   margin-bottom: 1rem;
   font-size: 1.25rem;
 }
 
-.sidebar__ctn--cartInfo > div > p:first-child {
+.sidebar__ctn--quantityCost > p:first-child {
   margin-right: 1rem;
 }
-
-
 
 .sidebar__ctn--cartItem > img {
   width: 40%;
@@ -84,18 +97,19 @@
 
 // Category list li
 .sidebar__ctn--content {
+  overflow: scroll;
   position: relative;
   padding: 3rem;
 }
 
 .sidebar__ctn--content > h2 {
-  @include p__base--apercu;
+  @include h6__base--apercu;
   margin-bottom: 2rem;
   font-size: 1.5rem;
 }
 
 .sidebar__ctn--content > ul > li {
-  @include h1__base--canela;
+  @include h2__base--canela;
   margin-bottom: 1.5rem;
   color: $black-color;
   transition: color 0.3s;
@@ -171,4 +185,73 @@
 .sidebar__section--empty {
   flex-grow: 1;
   background-color: rgba(0,0,0,0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1025px) {
+  .sidebar__ctn--cartInfo > h5 {
+    @include h6__base--canela;
+    font-family: canelaBold;
+  }
+
+  .sidebar__ctn--quantityCost {
+    font-size: 1rem;
+  }
+
+  .sidebar__ctn--cartItem > img {
+    width: 60%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .sidebar__ctn--cartTotalCost {
+    @include h6__base--canela;
+    font-family: canelaBold;
+  }
+}
+
+
+
+@media screen and (max-width: 769px) {
+  .sidebar__section--category {
+    width: 35vw;
+  }
+  .sidebar__section--product {
+    width: 40vw;
+  }
+
+  .sidebar__ctn--productInfo > h2 {
+    @include h6__base--canela;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .sidebar__section--category {
+    position: absolute;
+    z-index: 10;
+    width: 100vw;
+    height: 100%;
+  }
+  .sidebar__section--product {
+    position: absolute;
+    z-index: 11;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .sidebar__section--user {
+    position: absolute;
+    z-index: 10;
+    width: 100vw;
+    height: 100%;
+  }
 }

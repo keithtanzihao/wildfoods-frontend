@@ -112,3 +112,34 @@
 .productItem__ctn--content > div h5 {
   @include h5__base--apercu;
 }
+
+
+
+
+@media screen and (max-width: 1025px) {
+  .productItem {
+    width: calc((80vw - 10rem) / 2 - 1rem);
+  }
+
+  .productItem__ctn--content {
+    height: 20vh;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .productItem {
+    width: calc((75vw - 4rem) / 2 - 1rem);
+  }
+}
+
+@media screen and (max-width: 469px) {
+  .productItem {
+    width: calc((70vw - 2rem) - 1rem);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .productItem {
+    width: 100%;
+  }
+}

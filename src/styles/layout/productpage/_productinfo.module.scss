@@ -184,3 +184,45 @@
 
 
 
+
+
+@media screen and (max-width: 426px) {
+  .productInfo {
+    padding: 0rem 1rem;
+  }  
+
+  .productInfo__ctn {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .productInfo__imgCtn {
+    width: calc(100vw - 2rem);
+  }
+
+  .productInfo__imgCtn > img {
+    position: sticky;
+    top: 10%;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .productInfo__infoCtn {
+    padding: 0rem; 
+    width: calc(100vw - 2rem);
+  }
+
+  .productInfo__infoCtn > p,
+  .productInfo__nutritionCtn > p {
+    margin-bottom: 15vh;
+  }
+
+  .productInfo__nutritionCtn > div:first-child {
+    width: 100%;
+  }
+
+  .productInfo__nutritionCtn > ul div {
+    width: 100%;
+  }
+  
+}

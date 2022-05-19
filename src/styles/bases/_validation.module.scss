@@ -13,7 +13,7 @@
 
 // -------------------------------------------------------------------------
 .input__ctn label {
-  @include h5__base--apercu;
+  @include h6__base--apercu;
 }
 
 .input__ctn > div {
@@ -23,7 +23,7 @@
 
 
 .input__div--valid {
-  @include h5__base--apercu;
+  @include h6__base--apercu;
   border: 4px solid black;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
@@ -32,7 +32,7 @@
 }
 
 .input__div--invalid {
-  @include h5__base--apercu;
+  @include h6__base--apercu;
   border: 4px solid $red-color;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
@@ -42,13 +42,13 @@
 
 
 .input__span--valid {
-  @include h5__base--apercu;
+  @include h6__base--apercu;
   margin-left: 0.5rem;
   color: $green-color;
 }
 
 .input__span--invalid {
-  @include h5__base--apercu;
+  @include h6__base--apercu;
   margin-left: 0.5rem;
   color: $red-color;
 }
