@@ -8,7 +8,7 @@ import styles from "../../../styles/main.module.scss";
 export default function CartAmountButton(props) {
 
   const updateAmount = (event) => {
-    props.updateCartQuantity(event.target.value);
+    props.updateCartQuantity(parseInt(event.target.value));
   };
 
   const addAmount = () => {
@@ -23,7 +23,6 @@ export default function CartAmountButton(props) {
 
   return (
     <div className={`${styles["cartAmountButton"]}`}>
-
       <div className={`${styles["button__amountCtn"]}`}>
         <Button
           className={`${styles["button__amount--add"]}`}
@@ -31,7 +30,6 @@ export default function CartAmountButton(props) {
         >
           <GrAdd className={`${styles["icon__cartAmountButton--add"]}`} />
         </Button>
-
         <div>
           <input
           type="number"
@@ -42,8 +40,6 @@ export default function CartAmountButton(props) {
           onChange={updateAmount}
         />
         </div>
-
-
         <Button
           className={`${styles["button__amount--minus"]}`}
           onClick={minusAmount}
@@ -51,7 +47,6 @@ export default function CartAmountButton(props) {
           <GrSubtract className={`${styles["icon__cartAmountButton--minus"]}`} />
         </Button>
       </div>
-
     </div>
   );
 }

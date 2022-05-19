@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import AuthContext from "../../context/auth-context";
 
-import Button from "./Button";
-
 import styles from "../../styles/main.module.scss";
 import logo from "../../styles/vendors/images/icons/wildSoulsIcon.svg";
 
@@ -33,9 +31,9 @@ export default function Navbar(props) {
             </div>
             <div className={`${styles["navbar__ctn--link"]}`}>
               <li onClick={props.updateIsSidebarOpen}><p>Products</p></li>
-              <li><p>Build Your Gift</p></li>
+              {/* <li><p>Build Your Gift</p></li>
               <li><p>The Store</p></li>
-              <li><p>Recipies</p></li>
+              <li><p>Recipies</p></li> */}
               {renderLoginOrUser()}
             </div>
           </div>

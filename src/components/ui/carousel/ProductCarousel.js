@@ -1,26 +1,19 @@
-import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
+import { apiUrl, axiosApiUrl } from "../../../utility/axios";
 
 import ProductItem from "../../productpage/ProductItem";
-import Button from "../Button";
 
-import styles from "../../../styles/main.module.scss";
 import "react-multi-carousel/lib/styles.css";
 
-import { BASE_URL } from "../../../helpers/helper";
-
 export default function ProductCarousel(props) {
-
   const [hasLoaded, setHasLoaded] = useState(false);
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const products = await axios.get(
-          BASE_URL + "/product/category_title/Tahinis"
-        );
+        const products = await axiosApiUrl.get(apiUrl.productCategoryTahini);
         setProductData(products.data);
       } catch (error) {
         console.log("productCarousel useEffect problem");
@@ -49,8 +42,8 @@ export default function ProductCarousel(props) {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2,
-      slidesToSlide: 2, // optional, default to 1.
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
     },
   };
 

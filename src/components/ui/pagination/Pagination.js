@@ -25,9 +25,7 @@ export default function Pagination(props) {
       >
         <GrPrevious className={`${styles["icon__pagination--prev"]}`} />
       </Button>
-
       {renderPagination()}
-
       <Button
         className={`${styles["button__pagination--right"]}`}
         onClick={() => props.changePageNumber(1)}

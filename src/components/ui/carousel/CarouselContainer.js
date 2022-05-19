@@ -4,12 +4,11 @@ import ProductCarousel from "./ProductCarousel";
 
 import styles from "../../../styles/main.module.scss";
 
+// Will implement this in the future
 export default function CarouselContainer() {
   return (
     <div className={`${styles["carouselCtn"]}`}>
-
       <div className={`${styles["carouselCtn__ctn--card"]}`}>
-
         <div className={`${styles["carouselCtn__ctn--title"]}`}>
           <h1>Wildly Loved</h1>
           <h5>
@@ -17,13 +16,10 @@ export default function CarouselContainer() {
             or anything else can spoil their nature
           </h5>
         </div>
-
         <div className={`${styles["carouselCtn__ctn--content"]}`}>
           <ProductCarousel />
         </div>
-
       </div>
-
     </div>
   );
 }

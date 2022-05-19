@@ -12,6 +12,8 @@ const hexColorType = ["color_theme"];
 const emailType = ["email"];
 const urlType = ["media_url"];
 
+// Not all functions were used
+// Will refactor in the future.
 
 const validateTextInput = (key, value, errorMsg, setErrorMsg) => {
   let msg = "Valid"
@@ -54,7 +56,6 @@ const validateTextInput = (key, value, errorMsg, setErrorMsg) => {
     [key]: msg
   });
 }
-
 
 
 function TextNumberInput(props) {
@@ -100,8 +101,6 @@ function TextNumberInput(props) {
 }
 
 
-
-
 function TextAreaInput(props) {
   // Update sate function
   const updateTextInputTag = (event) => {
@@ -139,16 +138,6 @@ function TextAreaInput(props) {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
 
 
 function TextInputValidate(props) {
@@ -201,7 +190,6 @@ function TextInput(props) {
       [event.target.name]: event.target.value
     });
   };
-
   return (
     <label>
       <input
@@ -214,6 +202,7 @@ function TextInput(props) {
     </label>
   )
 }
+
 
 function RadioInput(props) {
   const updateTextInputTag = (event) => {
@@ -239,7 +228,6 @@ function RadioInput(props) {
       )
     })
   }
-
   return (
     <div className={`${styles["radioInput__ctn"]}`}>
       {renderRadioButtons()}
@@ -247,8 +235,8 @@ function RadioInput(props) {
   )
 }
 
-function SelectOptionInput(props) {
 
+function SelectOptionInput(props) {
   // Update sate function
   const updateTextInputTag = (event) => {
     props.setTableData({
@@ -275,26 +263,8 @@ function SelectOptionInput(props) {
     >
       {renderOptions()}
     </select>
-
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function RadioInputValidate(props) {
